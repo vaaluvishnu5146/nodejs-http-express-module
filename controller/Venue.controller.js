@@ -1,8 +1,9 @@
 const VenueController = require("express").Router();
 const VenueModel = require("../model/Venue.model");
+const { getAllVenue } = require("../routes/venue.router");
 
 VenueController.get("/", (req, res) => {
-  VenueModel.find()
+  getAllVenue()
     .then((response) => {
       if (response.length > 0) {
         res.status(200).json({

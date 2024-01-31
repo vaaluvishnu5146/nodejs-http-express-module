@@ -1,0 +1,18 @@
+<div class="card col-4">
+  <img src="<%= venue.image %>" class="card-img-top" alt="<%= venue.name %>" />
+  <div class="card-body">
+    <h5 class="card-title"><%= venue.name %></h5>
+    <p class="card-text">
+      Seating Capacity <span><b><%= venue.seatingCapacity %></b></span>
+    </p>
+    <p class="card-text">
+      Price/hour <span><b><%= venue.pricePerHour %></b></span>
+    </p>
+    <ul>
+      <% venue.amenities.forEach(function(amenity){ %>
+      <li><%= amenity %></li>
+      <% }); %>
+    </ul>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

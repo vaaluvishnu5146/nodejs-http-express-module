@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="container">
+    <header><%- include('../partials/header'); %></header>
+
+    <div class="row">
+      <% venues.forEach(function(venue){ %> <%- include('../partials/venuecard',
+      {venue: venue}) %> <% }); %>
+    </div>
+
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
+</html>
