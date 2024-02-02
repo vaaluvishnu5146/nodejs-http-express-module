@@ -5,11 +5,10 @@ const HTTP_SERVER = express();
 const PORT = 5000;
 const { connectDatabase } = require("./dbconfig");
 
-var whitelist = ["http://localhost:5173"];
+var whitelist = ["http://localhost:5173", undefined];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
-      console.log(origin);
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));

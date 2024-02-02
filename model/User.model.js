@@ -33,6 +33,10 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+  role: {
+    type: Array,
+    default: ["lvl1"],
+  },
 });
 
 module.exports = mongoose.model("user", UserSchema);

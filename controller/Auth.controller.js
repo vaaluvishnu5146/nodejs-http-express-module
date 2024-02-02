@@ -1,5 +1,5 @@
+var jwt = require("jsonwebtoken");
 const UserModel = require("../model/User.model");
-
 const AuthRouter = require("express").Router();
 
 // 1. Signup API
@@ -48,9 +48,18 @@ AuthRouter.post("/login", (req, res) => {
     .then((response) => {
       if (response && response._id) {
         if (response.password === password) {
+          var token = jwt.sign(
+            {
+              uid: response._id,
+              role: response.role,
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: "1h" }
+          );
           return res.status(200).json({
             success: true,
             message: "Sign in Successful",
+            token: token,
           });
         } else {
           return res.status(400).json({
